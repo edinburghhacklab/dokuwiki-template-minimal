@@ -53,7 +53,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         </div>
         <?php if($showTools || actionOK('search')):?>
         <div class="right-column">
-        <?php if($showTools):?>
+        <?php if(1 || $showTools):?>
         <div class="options">
             <?php if(sizeof((new \dokuwiki\Menu\PageMenu())->getItems())>0):?>
             
@@ -62,6 +62,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <div class="edit-button menu"  title="Edit this page"><?=(new \dokuwiki\Menu\PageMenu())->getListItems()?></div>
 
             <?php endif ?>
+            <?php if($showTools):?>
             <div class="page-menu menu">
                 <div class="button"><span><?=tpl_getLang('page')?></span></div>
                   <div class="list">
@@ -69,6 +70,8 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 </div>
             </div>
             <?php endif?>
+            <?php endif?>
+            <?php if($showTools):?>
             <?php if(sizeof((new \dokuwiki\Menu\SiteMenu())->getItems())>0):?>
             <div class="site-menu menu">
                 <div class="button"><span><?=tpl_getLang('site')?></span></div>
@@ -76,6 +79,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                   <?=(new \dokuwiki\Menu\SiteMenu())->getListItems()?>    
                 </div>
             </div>
+            <?php endif?>
             <?php endif?>
             <?php if(sizeof((new \dokuwiki\Menu\UserMenu())->getItems())>0):?>
             <div class="user-menu menu">
